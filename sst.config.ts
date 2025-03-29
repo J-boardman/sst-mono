@@ -3,13 +3,33 @@
 export default $config({
   app(input) {
     return {
-      name: "monorepo-template",
+      name: "testrfp-ai",
       removal: input?.stage === "production" ? "retain" : "remove",
       protect: ["production"].includes(input?.stage),
       home: "aws",
+      providers: {
+        aws: {
+          profile:
+            input.stage === "production" ? "Testing-production" : "Testing-dev",
+        },
+      },
     };
   },
+  console: {
+    autodeploy: {
+      target(event) {
+        if (
+          event.type === "branch" &&
+          event.branch === "main" &&
+          event.action === "pushed"
+        ) {
+          return { stage: "production" };
+        }
+      },
+    },
+  },
   async run() {
+    await import("./infra/");
     const storage = await import("./infra/storage");
     await import("./infra/api");
 

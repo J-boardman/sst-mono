@@ -1,10 +1,12 @@
 {
-  "name": "monorepo-template",
+  "name": "testrfp-ai",
   "version": "0.0.0",
   "workspaces": [
     "packages/*"
   ],
-  "scripts": {},
+  "scripts": {
+    "dev:f": "sst dev quasar dev"
+  },
   "devDependencies": {
     "@tsconfig/node22": "^22",
     "typescript": "^5"
