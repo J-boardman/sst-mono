@@ -25,6 +25,12 @@ export default $config({
         ) {
           return { stage: "production" };
         }
+
+        console.log(event);
+
+        if (event.type === "pull_request") {
+          return { stage: event.title };
+        }
       },
       async workflow({ $, event }) {
         await $`npm i`;
