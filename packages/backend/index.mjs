@@ -20,12 +20,12 @@ const app = express();
 
 app.use(cors())
 app.get("/", (req, res) => {
+  console.log('Received a new request!')
   res.send("Hello World!")
 });
 
 app.post("/", upload.single("file"), async (req, res) => {
   const file = req.file;
-  console.log('file', file);
   const params = {
     Bucket: Resource.MyBucket.name,
     ContentType: file.mimetype,

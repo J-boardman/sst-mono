@@ -9,7 +9,6 @@
     <p>Count: {{ todoCount }} / {{ meta.totalCount }}</p>
     <p>Active: {{ active ? 'yes' : 'no' }}</p>
     <p>Clicks on todos: {{ clickCount }}</p>
-    <p>API URL: {{ api.defaults.baseURL }}</p>
     <q-form @submit.prevent="submit">
       <q-file color="purple-12" v-model="file" label="Label" :rules="[(val) => !!val || 'File is required']"></q-file>
       <q-btn type="submit" label="Submit" />
