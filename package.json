@@ -4,9 +4,6 @@
   "workspaces": [
     "packages/*"
   ],
-  "scripts": {
-    "dev:f": "sst dev quasar dev"
-  },
   "devDependencies": {
     "@tsconfig/node22": "^22",
     "typescript": "^5"

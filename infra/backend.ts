@@ -15,6 +15,6 @@ export const backend = new sst.aws.Service("MyBackend", {
 
   link: [bucket],
   dev: {
-    command: "node --watch packages/backend/index.mjs",
+    command: "node --watch index.mjs",
   },
 });

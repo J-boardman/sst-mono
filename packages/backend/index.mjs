@@ -20,10 +20,6 @@ app.get("/", (req, res) => {
   res.send("Hello World!")
 });
 
-app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
-});
-
 app.post("/", upload.single("file"), async (req, res) => {
   const file = req.file;
   const params = {
@@ -61,4 +57,8 @@ app.get("/latest", async (req, res) => {
   const url = await getSignedUrl(s3, command);
 
   res.redirect(url);
+});
+
+app.listen(PORT, () => {
+  console.log(`Server is running on http://localhost:${PORT}`);
 });

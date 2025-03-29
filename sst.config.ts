@@ -29,12 +29,11 @@ export default $config({
     },
   },
   async run() {
-    await import("./infra/");
-    const storage = await import("./infra/storage");
-    await import("./infra/api");
+    const infra = await import("./infra");
 
     return {
-      MyBucket: storage.bucket.name,
+      MyBucket: infra.bucket.name,
+      MyBackend: infra.backend.url,
     };
   },
 });
