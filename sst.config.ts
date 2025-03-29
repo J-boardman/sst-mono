@@ -26,6 +26,12 @@ export default $config({
           return { stage: "production" };
         }
       },
+      async workflow({ $, event }) {
+        await $`npm i`;
+        event.action === "removed"
+          ? await $`npm sst remove`
+          : await $`npm sst deploy`;
+      },
     },
   },
   async run() {
