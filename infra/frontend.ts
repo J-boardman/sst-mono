@@ -7,7 +7,7 @@ export const web = new sst.aws.StaticSite("MyWeb", {
     output: "dist/spa",
   },
   dev: {
-    command: `npx quasar dev`,
+    command: `npx quasar dev -m pwa`,
   },
   environment: {
     VITE_API_URL: $dev ? backend.url : api.url,

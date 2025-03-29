@@ -34,8 +34,6 @@ interface Props {
   active: boolean;
 };
 
-console.log(import.meta.env)
-
 const file = ref<File | null>(null);
 async function submit() {
   const notification = $q.notify({
