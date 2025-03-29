@@ -10,6 +10,10 @@ declare module "sst" {
       "type": "sst.aws.Function"
       "url": string
     }
+    "MyApiGateway": {
+      "type": "sst.aws.ApiGatewayV2"
+      "url": string
+    }
     "MyBackend": {
       "service": string
       "type": "sst.aws.Service"

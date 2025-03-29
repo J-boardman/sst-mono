@@ -1,11 +1,8 @@
 <template>
   <q-page class="row items-center justify-evenly">
-    <example-component
-      title="Example component"
-      active
-      :todos="todos"
-      :meta="meta"
-    ></example-component>
+    <suspense v-on:fallback="fallback">
+      <example-component title="Example component" active :todos="todos" :meta="meta"></example-component>
+    </suspense>
   </q-page>
 </template>
 
@@ -40,4 +37,8 @@ const todos = ref<Todo[]>([
 const meta = ref<Meta>({
   totalCount: 1200
 });
+
+const fallback = () => {
+  return 'Loading...'
+}
 </script>

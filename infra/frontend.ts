@@ -1,4 +1,4 @@
-import { backend } from "./backend";
+import { api, backend } from "./backend";
 
 export const web = new sst.aws.StaticSite("MyWeb", {
   path: "packages/frontend",
@@ -10,6 +10,6 @@ export const web = new sst.aws.StaticSite("MyWeb", {
     command: `npx quasar dev`,
   },
   environment: {
-    VITE_API_URL: backend.url,
+    VITE_API_URL: $dev ? backend.url : api.url,
   },
 });

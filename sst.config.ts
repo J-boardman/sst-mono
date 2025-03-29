@@ -33,7 +33,6 @@ export default $config({
 
     return {
       MyBucket: infra.bucket.name,
-      MyBackend: infra.backend.url,
     };
   },
 });

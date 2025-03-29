@@ -16,5 +16,17 @@ export const backend = new sst.aws.Service("MyBackend", {
   link: [bucket],
   dev: {
     command: "node --watch index.mjs",
+    url: "http://localhost:80",
+  },
+  serviceRegistry: {
+    port: 80,
   },
 });
+
+export const api = new sst.aws.ApiGatewayV2("MyApiGateway", {
+  vpc,
+});
+
+if (!$dev) {
+  api.routePrivate("$default", backend.nodes.cloudmapService.arn);
+}
