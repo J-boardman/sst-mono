@@ -29,7 +29,7 @@ export default $config({
         console.log(event);
 
         if (event.type === "pull_request") {
-          return { stage: event.title };
+          return { stage: `pr-#${event.number}` };
         }
       },
       async workflow({ $, event }) {
